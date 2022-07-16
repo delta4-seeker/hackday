@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from components import views
+from django.contrib.auth.models import User
+from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('category/', views.category , name = "category"),
+    path('unseen_request/', views.unseen_request , name = "unseen_request")
+
 ]

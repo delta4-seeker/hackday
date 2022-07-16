@@ -2,7 +2,15 @@ from django.db import models
 from user.models import UserProfile
 
 class Requisition(models.Model):
+    STATUS = (
+        ('unseen', 'unseen'),
+        ('accept', 'accept'),
+        ('reject', 'reject'),
+    )
     user= models.ForeignKey(UserProfile,on_delete=models.CASCADE,null=True, default= "0" , blank=True)
+    status = models.BooleanField(default=True)
+    create_at=models.DateTimeField(auto_now_add=True)
+    update_at=models.DateTimeField(auto_now=True)
     total_compo = models.IntegerField()
 
 class Requisition_compo(models.Model):
@@ -10,5 +18,7 @@ class Requisition_compo(models.Model):
     user= models.ForeignKey(UserProfile,on_delete=models.CASCADE,null=True, default= "0" , blank=True)
     component= models.CharField(max_length=20)
     quantity = models.IntegerField()
+    create_at=models.DateTimeField(auto_now_add=True)
+    update_at=models.DateTimeField(auto_now=True)
 
  

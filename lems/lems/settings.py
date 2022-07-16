@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'rest_framework',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
     'components',
     'quotation',
     'home',
-    'requisition'
+    'requisition' , 
 
 
 ]
@@ -76,7 +78,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lems.wsgi.application'
 
-
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
