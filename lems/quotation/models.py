@@ -8,5 +8,3 @@ class Quotation(models.Model):
     component = models.CharField(max_length=100)
     quantity = models.IntegerField()
     status = models.BooleanField(default=True)
-    create_at=models.DateTimeField(auto_now_add=True)
-    update_at=models.DateTimeField(auto_now=True)
