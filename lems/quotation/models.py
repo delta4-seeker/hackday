@@ -1,3 +1,9 @@
-from django.db import models
+from django.db import models 
+from user.models import UserProfile
+ 
 
-# Create your models here.
+
+class Quotation(models.Model):
+    user= models.ForeignKey(UserProfile,on_delete=models.CASCADE,null=True, default= "0" , blank=True)
+    component = models.CharField(max_length=100)
+    quantity = models.IntegerField()

@@ -8,7 +8,7 @@ class Category(models.Model):
 
 
 class Component(models.Model):
-    category= models.ForeignKey(Category,on_delete=models.CASCADE,null=True,blank=True)
+    category= models.ForeignKey(Category,on_delete=models.CASCADE,null=True, default= "0" , blank=True)
 
     name = models.CharField(max_length=100)
     price = models.IntegerField()
@@ -17,7 +17,7 @@ class Component(models.Model):
     availability_qty = models.IntegerField()
     damage = models.BooleanField(default=False)
     available_data = models.TextField(max_length=50)
-    category = models.CharField(max_length=10)
+    
 
  
 
